@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <script src="https://kit.fontawesome.com/43b779b2fa.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        #screen{
+            width:100%;
+            height:750px;
+            /* border:1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+        #body{
+            width:60%;
+            height:70%;
+            /* border:1px solid red; */
+            display: flex;
+        }
+        #left{
+            width:40%;
+            height:100%;
+            /* border:1px solid blue; */
+        }
+        #left>img{
+            height:100%;
+            width:100%;
+            
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        #right{
+            width:60%;
+            height:100%;
+            /* border:1px solid blue; */
+            padding:20px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(22,24,31);
+            color:rgb(134,148,149);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        #right>i{
+            text-align: right;
+            font-size: 25px;
+        }
+        #right>h2{
+            margin-bottom: 10px;
+            color:white;
+        }
+        #right>div:nth-child(3){
+            height:250px;
+            width:100%;
+            /* border:1px solid red; */
+        }
+        #right>div:nth-child(3)>div{
+            height:50px;
+            width:100%;
+            border:1px solid grey;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        #right>div:nth-child(3)>div>input{
+            height:100%;
+            width:100%;
+            border:none;
+            outline: none;
+            cursor: default;
+            caret-color: rgb(134,148,149);
+            background-color: rgb(22,24,31) ;
+            color:white;
+            /* font-size: 30px; */
+        }
+        #right>p:nth-child(4){
+            font-size: 13px;
+        }
+        #right>p:nth-child(4)>span{
+            color:white;
+        }
+        #right>p:nth-child(5){
+            margin-top: 60px;
+            text-align: center;
+        }
+        #right>p:nth-child(5)>span{
+            color:blue;
+        }
+
+        @media screen and (max-width:1000px) {
+            #left{
+                display: none;
+            }
+            #right{
+                width:100%;
+                height:100%;
+                border-radius: 20px;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="screen">
+        <div id="body">
+            <div id="left">
+                <img src="./hotstar-login.jpeg"/>
+            </div>
+            <div id="right">
+                <i class="fa-solid fa-xmark"></i>
+                <h2>Register to continue</h2>
+                <div>
+                    <div><input type="text" placeholder="Enter Name"/></div>
+                    <div><input type="email" placeholder="Enter Email"/></div>
+                    <div><input type="password" placeholder="Enter Password"/></div>
+                    <div><input type="password" placeholder="Enter Password"/></div>
+                </div>
+                <p>By procedding yo uconfirm that you are above 18 years of age and agree to the <span>Privacy Policy & Terms of Use</span></p>
+                <p>Having trouble logging in? <span>Get Help</span></p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
