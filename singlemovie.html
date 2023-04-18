@@ -27,6 +27,13 @@
             position: fixed;
             background-color: rgb(15,16,19);
             left: 0;
+            z-index: 8;
+        }
+        #sidebar:hover{
+            width: 15%;
+            transition: 0.2s;
+            opacity: 0.9;
+            background-image: linear-gradient(to right, rgba(5,5,10,2), rgba(0, 0, 0, 0.2));
         }
         #mainhead{
             background-color: #0f1014;
@@ -38,9 +45,11 @@
             padding-top: 15px;
         }
         #navhead{
-            width:60%;
-            height:30%;
+            /* width:60%; */
+            /* height:30%; */
             align-self: center;
+            position: fixed;
+            left: 1%;
         }
         #navhead>img{
            width:100%;
@@ -89,7 +98,7 @@
             /* border:1px solid purple; */
             color:grey;
             display: none;
-            background-color: #0f1014;
+            /* background-color: #0f1014; */
             opacity: 0.9;
         }
         #iconinfo>div{
