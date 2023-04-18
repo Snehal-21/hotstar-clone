@@ -14,39 +14,403 @@
         }
         #screen{
             width:100%;
-            height:1000px;
-            border:1px solid red;
+            /* height:2100px; */
+            /* border:1px solid red; */
             display: flex;
+            background-color: rgb(15,16,19);
         }
         #sidebar{
-            width:8%;
+            width:6%;
             height:750px;
-            border:1px solid green;
+            /* border:1px solid green; */
+            /* background-color: #0f1014; */
+            position: fixed;
+            background-color: rgb(15,16,19);
+            left: 0;
+        }
+        #mainhead{
             background-color: #0f1014;
+            height:140px;
+            width:100%;
+            /* border:1px solid blue; */
+            display: flex;
+            flex-direction: column;
+            padding-top: 15px;
+        }
+        #navhead{
+            width:60%;
+            height:30%;
+            align-self: center;
+        }
+        #navhead>img{
+           width:100%;
+           height:100%;
+        }
+        #navbarcontent{
+            height:370px;
+            width:220px;
+            /* border:1px solid red; */
+            z-index: 8;
+            margin-top: 60px;
+            display: flex;
+            position: absolute;
+        }
+        #sideicon{
+            /* height:100%; */
+            width:40%;
+            /* border:1px solid green; */
+            /* margin-top: 60px; */
+        }
+        #sideicon>div{
+            height:60px;
+            width:100%;
+            /* border:1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #sideicon>div>img:hover +  #sideicon>div>img{
+            filter: invert(100%)
+        }
+        #sideicon>div>img{
+            height:35%;
+            width: 35%;
+            filter: invert(30%)
+        }
+        #sideicon:hover + #sidebar{
+            background-image: linear-gradient( to right,rgba(2,5,10,2), rgba(2, 2, 2, 0.2));
+        }
+        #sideicon:hover + #iconinfo{
+            display: block;
+        }
+        #iconinfo{
+            width:60%;
+            height:100%;
+            /* border:1px solid purple; */
+            color:grey;
+            display: none;
+            background-color: #0f1014;
+            opacity: 0.9;
+        }
+        #iconinfo>div{
+            height:60px;
+            width:100%;
+            /* border:1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #iconinfo>div>p{
+            font-weight: bold;
+            font-size: 20px;
         }
         #body{
             width:94%;
-            height:1000px;
-            border:1px solid green;
+            /* height:1000px; */
+            margin-left: 6%;
+            /* border:1px solid green; */
+            /* position: absolute; */
         }
         #movieimage{
             height: 750px;
             width:100%;
-            border:1px solid blue;
-            background-image: linear-gradient(to top right, rgba(2,5,10,2), rgba(2, 2, 2, 0.2)),url('https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/9234/1389234-h-00aed0f5495d');
+            /* border:1px solid blue; */
+            background-image: linear-gradient(to right, rgba(2,5,10,2), rgba(2, 2, 2, 0.2)),url('https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/9234/1389234-h-00aed0f5495d');
             background-size: 100% 100%;
-            z-index: 2;
+            /* z-index: 2; */
+            display: flex;
+            align-items: end;
+            padding-bottom: 100px;
+        }
+        #movieinfo{
+            height:50%;
+            width:40%;
+            /* border:1px solid red; */
+            padding-left: 20px;
+            color:white;
+            z-index: 3;
+            position:absolute;
+            top:330px;
+        }
+        #movieinfo>h1{
+            font-size: 50px;
+        }
+        #movieinfo>p:nth-child(2){
+            font-weight: bold;
+            font-size: 17px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        #movieinfo>p:nth-child(3){
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #movieinfo>p:nth-child(4){
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #movieinfo>p:nth-child(4)>span{
+            color:grey;
+        }
+        #movieinfo>div{
+            height: 55px;
+            width:80%;
+            /* border:1px solid blue; */
+            display: flex;
+            justify-content: space-between;
+        }
+        #movieinfo>div>button:nth-child(1){
+            width:85%;
+            height:100%;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+        }
+        #movieinfo>div>button:nth-child(1)>span{
+            margin-right: 10px;
+        }
+        #movieinfo>div>button:nth-child(2){
+            width:12%;
+            height:100%;
+            font-size: 25px;
+            color: white;
+            background-color: rgb(49,47,47);
+            border: none;
+            opacity: 0.7;
+            border-radius: 10px;
+        }
+        #body1{
+            /* height:420px; */
+            width:100%;
+            /* border:3px solid blue; */
+        }
+        #body1head{
+            height:90px;
+            width:100%;
+            /* border:1px solid green; */
+            display: flex;
+            align-items: end;
+            padding-bottom: 20px;
+            border-bottom: 1px solid grey;
+        }
+        #body1head>p{
+            width:200px;
+            font-size: 22px;
+        }
+        #body1head>p:nth-child(1){
+            color: white;
+        }
+        #body1head>p:nth-child(2){
+            color: rgb(141, 139, 139);
+        }
+        #body1info{
+            height:330px;
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+            /* border: 1px solid green; */
+            padding-top: 30px;
+        }
+        #body1info>div{
+            width:16%;
+            height:100%;
+            /* border:1px solid blue; */
+        }
+        #body1info>div>img{
+            height:100%;
+            width:100%;
+            border-radius: 10px;
+        }
+        #body2{
+            /* height:300px; */
+            width:25%;
+            /* border:1px solid red; */
+            margin-top: 50px;
+        }
+        #body2>h1{
+            color:white;
+            font-size:23px;
+        }
+        #body2>div{
+            height:200px;
+            width:300px;
+            /* border:1px solid green; */
+            margin-bottom: 10px;
+        }
+        #body2>div>img{
+            width:100%;
+            height:100%;
+        }
+        #body2>h2{
+            color:white;
+            font-size: 23px;
+            margin-left: 10px;
+        }
+        #footer{
+            height:200px;
+            width:100%;
+            /* border:1px solid green; */
+            display: flex;
+            justify-content: space-between;
+            margin-top: 330px;
+        }
+        #footer>div{
+            width:20%;
+            height:100%;
+            /* border:1px solid red; */
+            color:white
+        }
+        #footer>div>h4{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #footer>div>p{
+            margin-bottom: 10px;
+            color:rgb(186, 175, 208);
+        }
+        #footer>div>h6{
+            font-size: 14px;
+            margin-top: 50px;
+            color:rgb(186, 175, 208);
+        }
+        #footer>div:nth-child(4)>div:nth-child(2){
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        #footer>div:nth-child(4)>div:nth-child(2)>i{
+            margin-right: 10px;
+        }
+        #footer>div:nth-child(4)>div:nth-child(3){
+            width:80%;
+            height:40px;
+            /* border:1px solid blue; */
+            display: flex;
+            justify-content: space-between;
+        }
+        #footer>div:nth-child(4)>div:nth-child(3)>img{
+            width:45%;
+            height:100%;
         }
     </style>
 </head>
 <body>
     <div id="screen">
        <div id="sidebar">
-
+        <div id="mainhead">
+            <div id="navhead">
+                <img src="./logo-d-plus (1).svg"/>
+            </div>
+        </div>
+       <div id="navbarcontent">
+        <div id="sideicon">
+            <div>
+             <img src="./user.svg"/>
+            </div>
+            <div>
+             <img src="./search (3).svg"/>
+            </div>
+            <div>
+             <img src="./home.svg"/>
+            </div>
+            <div>
+             <img src="./television-simple.svg"/>
+            </div>
+            <div>
+             <img src="./monitor-play.svg"/>
+            </div>
+            <div>
+             <img src="./dribbble-logo (3).svg"/>
+            </div>
+         </div>
+         <div id="iconinfo">
+            <div><p>My Space</p></div>
+            <div><p>Search</p></div>
+            <div><p>Home</p></div>
+            <div><p>TV</p></div>
+            <div><p>Movies</p></div>
+            <div><p>Sports</p></div>
+         </div>
+            
+       </div>
        </div>
        <div id="body">
         <div id="movieimage">
-           
+           <div id="movieinfo">
+            <h1>Total Dhamaal</h1>
+            <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+            <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+            <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
+            <div>
+                <button><span><i class="fa-solid fa-play"></i></span>  Watch Now</button>
+                <button>+</button>
+            </div>
+        </div>
+        
+        </div>
+        <div id="body1">
+            <div id="body1head">
+                <p>More Like This</p>
+                <p>Trailers & More</p>
+            </div>
+            <div id="body1info">
+                <div>
+                    <img src="./images/movie1.jpeg"/>
+                </div>
+                <div>
+                    <img src="./images/movie2.jpeg"/>
+                </div>
+                <div>
+                    <img src="./images/movie3.jpeg"/>
+                </div>
+                <div>
+                    <img src="./images/movie4.jpeg"/>
+                </div>
+                <div>
+                    <img src="./images/movie5.jpeg"/>
+                </div>
+                <div>
+                    <img src="./images/movie6.jpeg"/>
+                </div>
+                <!-- <div>
+                    <img src=""/>
+                </div> -->
+            </div>
+        </div>
+        <div id="body2">
+            <h1>Trailers & More</h1>
+            <div>
+                <img src="./images/trailer1.jpeg"/>
+            </div>
+            <h2>Total Dhamaal-Trailer</h2>
+        </div>
+        <div id="footer">
+            <div>
+                <h4>Company</h4>
+                <p>About Us</p>
+                <p>Careers</p>
+                <h6>@ 2023 STAR. All Rights Reserved.Terms Of Use Privacy POlicy FAQ</h6>
+            </div>
+            <div>
+                <h4>View Website in</h4>
+                <p><span></span>English</p>
+            </div>
+            <div>
+                <h4>Need Help?</h4>
+                <p>Visit Help Center</p>
+                <p>Share Feedback</p>
+            </div>
+            <div>
+              <h4>Connect With Us</h4>
+              <div>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+                <div>
+                    <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_256/v1661346101/google-playstore"/>
+                    <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_256/v1661346071/ios-appstore"/>
+                </div>
+            </div>
         </div>
        </div>
     </div>
