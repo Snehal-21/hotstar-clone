@@ -25,15 +25,19 @@
             /* border:1px solid green; */
             /* background-color: #0f1014; */
             position: fixed;
-            background-color: rgb(15,16,19);
+            /* background-color: rgb(15,16,19); */
             left: 0;
             z-index: 8;
         }
         #sidebar:hover{
-            width: 15%;
+            width: 13%;
             transition: 0.2s;
             opacity: 0.9;
             background-image: linear-gradient(to right, rgba(5,5,10,2), rgba(0, 0, 0, 0.2));
+        }
+         #sidebar:hover .image{
+            width:50%;
+            height:50%;
         }
         #mainhead{
             background-color: #0f1014;
@@ -57,20 +61,20 @@
         }
         #navbarcontent{
             height:370px;
-            width:220px;
+            width:100%;
             /* border:1px solid red; */
-            z-index: 8;
-            margin-top: 60px;
+            /* z-index: 8; */
+            margin-top: 100px;
             display: flex;
             position: absolute;
         }
         #sideicon{
             /* height:100%; */
-            width:40%;
+            width:100%;
             /* border:1px solid green; */
             /* margin-top: 60px; */
         }
-        #sideicon>div{
+        .icons{
             height:60px;
             width:100%;
             /* border:1px solid red; */
@@ -78,40 +82,45 @@
             align-items: center;
             justify-content: center;
         }
-        #sideicon>div>img:hover +  #sideicon>div>img{
-            filter: invert(100%)
+        .icons>div:nth-child(1){
+            width:50%;
+            height:100%;
+            /* border:1px solid green; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+         
         }
-        #sideicon>div>img{
-            height:35%;
-            width: 35%;
-            filter: invert(30%)
+        .icons>div:nth-child(1):hover .image{
+            filter: invert(100%);
+            height:60%;
         }
-        #sideicon:hover + #sidebar{
-            background-image: linear-gradient( to right,rgba(2,5,10,2), rgba(2, 2, 2, 0.2));
-        }
-        #sideicon:hover + #iconinfo{
+        .icons>div:nth-child(1):hover + .aa>p{
             display: block;
+            /* border:4px solid gold; */
+            color:white;
+            font-weight: bold;
         }
-        #iconinfo{
+        .icons>div:nth-child(2){
             width:60%;
             height:100%;
-            /* border:1px solid purple; */
-            color:grey;
-            display: none;
-            /* background-color: #0f1014; */
-            opacity: 0.9;
-        }
-        #iconinfo>div{
-            height:60px;
-            width:100%;
-            /* border:1px solid red; */
+            /* border:1px solid green; */
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: left;
+            /* display: none; */
         }
-        #iconinfo>div>p{
-            font-weight: bold;
-            font-size: 20px;
+        .icons>div:nth-child(2)>p{
+            font-size: 23px;
+            display: none;
+        }
+        .image{
+            height:80%;
+            width: 80%;
+            filter: invert(50%);
+        
+            /* border:1px solid red; */
         }
         #body{
             width:94%;
@@ -214,17 +223,74 @@
             color: rgb(141, 139, 139);
         }
         #body1info{
-            height:330px;
+            /* height:330px; */
+            position:relative;
+            z-index: 1;
             width:100%;
             display: flex;
             justify-content: space-between;
             /* border: 1px solid green; */
             padding-top: 30px;
+            padding-top:-50%;
         }
+
+
+         .showhover{
+            border:1px solid red;
+            z-index: 8;
+            position: relative;
+            height:40%;
+            bottom:0;
+            margin-top:-62%;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            /* top:110px; */
+            display: none;
+            padding:10px;
+             background-image: linear-gradient(to top, rgba(5,5,10,2), rgba(0, 0, 0, 0.2));
+        }
+        .showhover>button{
+            width:90%;
+            align-self: center;
+            /* margin: auto; */
+            height:30px;
+            padding:10px;
+            font-weight: bold;
+            border-radius: 10px;
+            border:none;
+        }
+        .showhover>p:nth-child(2){
+            color:white;
+            font-size: 11px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .showhover>p:nth-child(3){
+            color:rgb(161, 156, 156);
+            font-size: 11px;
+            margin-top: 5px;
+        }
+         #body1info>div:hover{
+            /* scale: 1.5; */
+            transition: 0.2s;
+            z-index: 3;
+            transform: scale(1.5,1.2);
+            box-shadow: 5px 10px 18px rgb(51, 46, 46);
+            /* object-fit: center; */
+            /* border:1px solid red; */
+            /* margin-top: -10px; */
+        }
+         #body1info>div:hover .showhover{
+            display: block;
+        }
+
+
+
         #body1info>div{
             width:16%;
-            height:100%;
-            /* border:1px solid blue; */
+            height:330px;
+            border:1px solid blue;
         }
         #body1info>div>img{
             height:100%;
@@ -301,6 +367,19 @@
             width:45%;
             height:100%;
         }
+
+        @media screen and (max-width:1000px){
+            #body1head>p:nth-child(2){
+                display: none;
+            }
+            #body1info{
+                flex-wrap: wrap;
+            }
+            #body1info>div{
+                width:32%;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -313,33 +392,32 @@
         </div>
        <div id="navbarcontent">
         <div id="sideicon">
-            <div>
-             <img src="./user.svg"/>
+            <div class="icons">
+             <div><img class="image"src="./user.svg"/></div>
+             <div class="aa"><p>My Space</p></div>
             </div>
-            <div>
-             <img src="./search (3).svg"/>
+            <div class="icons">
+             <div><img  class="image" src="./search (3).svg"/></div>
+             <div  class="aa"><p>Search</p></div>
             </div>
-            <div>
-             <img src="./home.svg"/>
+            <div class="icons">
+            <div> <img  class="image" src="./home.svg"/></div>
+            <div  class="aa"><p>Home</p></div>
             </div>
-            <div>
-             <img src="./television-simple.svg"/>
+            <div class="icons">
+             <div><img  class="image" src="./television-simple.svg"/></div>
+              <div  class="aa"><p>TV</p></div>
             </div>
-            <div>
-             <img src="./monitor-play.svg"/>
+            <div class="icons">
+             <div><img class="image" src="./monitor-play.svg"/></div>
+              <div  class="aa"><p>Movies</p></div>
             </div>
-            <div>
-             <img src="./dribbble-logo (3).svg"/>
+            <div class="icons">
+             <div><img class="image" src="./dribbble-logo (3).svg"/></div>
+              <div  class="aa"><p>Sports</p></div>
             </div>
          </div>
-         <div id="iconinfo">
-            <div><p>My Space</p></div>
-            <div><p>Search</p></div>
-            <div><p>Home</p></div>
-            <div><p>TV</p></div>
-            <div><p>Movies</p></div>
-            <div><p>Sports</p></div>
-         </div>
+        
             
        </div>
        </div>
@@ -364,32 +442,70 @@
             </div>
             <div id="body1info">
                 <div>
+                    
                     <img src="./images/movie1.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
                 <div>
                     <img src="./images/movie2.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
                 <div>
                     <img src="./images/movie3.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
                 <div>
                     <img src="./images/movie4.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
                 <div>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                     <img src="./images/movie5.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
                 <div>
                     <img src="./images/movie6.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
-                <!-- <div>
-                    <img src=""/>
-                </div> -->
             </div>
         </div>
         <div id="body2">
             <h1>Trailers & More</h1>
             <div>
                 <img src="./images/trailer1.jpeg"/>
+                <div class="showhover">
+                    <button>Watch Now</button>
+                    <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                    <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                </div>
             </div>
             <h2>Total Dhamaal-Trailer</h2>
         </div>

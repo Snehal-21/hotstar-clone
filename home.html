@@ -32,10 +32,16 @@
             z-index: 8;
         }
         #sidebar:hover{
-            width: 15%;
+            width: 13%;
             transition: 0.2s;
-            /* opacity: 0.9; */
+            opacity: 0.9;
+            /* position: relative; */
+            /* z-index: -1; */
             background-image: linear-gradient(to right, rgba(5,5,10,2), rgba(0, 0, 0, 0.2));
+        }
+        #sidebar:hover .image{
+            width:50%;
+            height:50%;
         }
         #mainhead{
             /* background-color: #0f1014; */
@@ -78,20 +84,20 @@
         }
         #navbarcontent{
             height:370px;
-            width:220px;
+            width:100%;
             /* border:1px solid red; */
-            z-index: 8;
+            /* z-index: 8; */
             margin-top: 100px;
             display: flex;
             position: absolute;
         }
         #sideicon{
             /* height:100%; */
-            width:40%;
-            /* border:1px solid green; */
+            width:100%;
+            /* border:5px solid green; */
             /* margin-top: 60px; */
         }
-        #sideicon>div{
+        .icons{
             height:60px;
             width:100%;
             /* border:1px solid red; */
@@ -99,53 +105,45 @@
             align-items: center;
             justify-content: center;
         }
-        #sideicon>div:hover  .image{
+        .icons>div:nth-child(1){
+            width:50%;
+            height:100%;
+            /* border:1px solid green; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+         
+        }
+        .icons>div:nth-child(1):hover .image{
             filter: invert(100%);
-            height:45%;
-            width: 45%;
-            /* border:5px solid red; */
+            height:60%;
         }
-        /* #sideicon>div:hover .p1{
-            color:white;
-            border:3px solid red;
-        } */
-        #sideicon>div>img{
-            height:35%;
-            width: 35%;
-            filter: invert(30%);
-            /* border:1px solid red; */
-        }
-        #sideicon:hover + #sidebar{
-            background-color: rgb(15,16,20);
-            /* background-image: linear-gradient( to right,rgba(2,5,10,2), rgba(2, 2, 2, 0.2)); */
-        }
-        #sideicon:hover + #iconinfo{
+        .icons>div:nth-child(1):hover + .aa>p{
             display: block;
+            /* border:4px solid gold; */
+            color:white;
+            font-weight: bold;
         }
-        #iconinfo{
+        .icons>div:nth-child(2){
             width:60%;
             height:100%;
-            /* border:1px solid purple; */
-            color:grey;
-            display: none;
-            /* background-color: #0f1014; */
-            /* background-color: rgb(15,16,20); */
-            opacity: 0.9;
-        }
-        #iconinfo>div{
-            height:60px;
-            width:100%;
-            /* border:1px solid red; */
+            /* border:1px solid green; */
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: left;
+            /* display: none; */
         }
-        #iconinfo>div>p{
-            font-weight: bold;
-            font-size: 20px;
-            /* color:red; */
-            /* color:white; */
-
+        .icons>div:nth-child(2)>p{
+            font-size: 23px;
+            display: none;
+        }
+        .image{
+            height:80%;
+            width: 80%;
+            filter: invert(50%);
+        
+            /* border:1px solid red; */
         }
         #body {
             width: 100%;
@@ -342,13 +340,15 @@
             /* border:1px solid red; */
             z-index: 2;
             position: relative;
-            height:0px;
+            height:40%;
+            margin-top: -62%;
             display: flex;
             flex-direction: column;
             /* align-items: center; */
-            top:120px;
+            /* top:110px; */
             display: none;
             padding:10px;
+             background-image: linear-gradient(to top, rgba(5,5,10,2), rgba(0, 0, 0, 0.2));
         }
         .showhover>button{
             width:90%;
@@ -362,14 +362,14 @@
         }
         .showhover>p:nth-child(2){
             color:white;
-            font-size: 14px;
-            margin-top: 8px;
+            font-size: 11px;
+            margin-top: 5px;
             font-weight: bold;
         }
         .showhover>p:nth-child(3){
             color:rgb(161, 156, 156);
             font-size: 11px;
-            margin-top: 8px;
+            margin-top: 5px;
         }
         .showsinfo>div:hover{
             /* scale: 1.5; */
@@ -529,34 +529,39 @@
            </div>
            <div id="navbarcontent">
             <div id="sideicon">
-                <div>
-                 <img class="image"src="./user.svg"/>
-                 <!-- <p class="imagep">My space</p> -->
+                <div class="icons">
+                 <div><img class="image"src="./user.svg"/></div>
+                 <div class="aa"><p>My Space</p></div>
                 </div>
-                <div>
-                 <img  class="image" src="./search (3).svg"/>
+                <div class="icons">
+                 <div><img  class="image" src="./search (3).svg"/></div>
+                 <div  class="aa"><p>Search</p></div>
                 </div>
-                <div>
-                 <img  class="image" src="./home.svg"/>
+                <div class="icons">
+                <div> <img  class="image" src="./home.svg"/></div>
+                <div  class="aa"><p>Home</p></div>
                 </div>
-                <div>
-                 <img  class="image" src="./television-simple.svg"/>
+                <div class="icons">
+                 <div><img  class="image" src="./television-simple.svg"/></div>
+                  <div  class="aa"><p>TV</p></div>
                 </div>
-                <div>
-                 <img class="image" src="./monitor-play.svg"/>
+                <div class="icons">
+                 <div><img class="image" src="./monitor-play.svg"/></div>
+                  <div  class="aa"><p>Movies</p></div>
                 </div>
-                <div>
-                 <img class="image" src="./dribbble-logo (3).svg"/>
+                <div class="icons">
+                 <div><img class="image" src="./dribbble-logo (3).svg"/></div>
+                  <div  class="aa"><p>Sports</p></div>
                 </div>
              </div>
-             <div id="iconinfo">
+             <!-- <div id="iconinfo">
                 <div><p >My Space</p></div>
                 <div><p>Search</p></div>
                 <div><p>Home</p></div>
                 <div><p>TV</p></div>
                 <div><p>Movies</p></div>
                 <div><p>Sports</p></div>
-             </div>
+             </div> -->
 
         </div>
     </div>
@@ -598,69 +603,69 @@
                 <p>Latest & Trending</p>
               <div class="showsinfo">
                 <div>
+                    <img src="./latest/latest1.jpeg"/>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
-                    <img src="./latest/latest1.jpeg"/>
                    
                 </div>
                 <div>
-                     <div class="showhover">
-                        <button>Watch Now</button>
-                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
-                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
-                    </div>
                     <img src="./latest/latest2.jpeg"/>
+                    <div class="showhover">
+                       <button>Watch Now</button>
+                       <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                       <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                   </div>
                 </div>
                 <div>
-                    <div class="showhover">
-                        <button>Watch Now</button>
-                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
-                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
-                    </div>
                     <img src="./latest/latest3.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest4.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest5.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest6.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest3.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest6.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
               </div>
             </div>
@@ -669,68 +674,68 @@
                 <p>Popular Shows</p>
               <div class="showsinfo">
                 <div>
-                    <div class="showhover">
-                        <button>Watch Now</button>
-                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
-                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
-                    </div>
                     <img src="./latest/latest1.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest2.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest3.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest4.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest5.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest6.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest4.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./latest/latest6.jpeg"/>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
               </div>
             </div>
@@ -762,68 +767,68 @@
                 <p>Movies Recommended For You</p>
               <div class="showsinfo">
                 <div>
-                    <div class="showhover">
-                        <button>Watch Now</button>
-                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
-                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
-                    </div>
                     <img src="./images/movie1.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie2.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie3.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie4.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie5.jpeg">
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie6.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie3.jpeg"/>
-                </div>
-                <div>
                     <div class="showhover">
                         <button>Watch Now</button>
                         <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
                         <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
                     </div>
+                </div>
+                <div>
                     <img src="./images/movie5.jpeg">
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                 </div>
               </div>
             </div>
