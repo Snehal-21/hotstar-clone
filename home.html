@@ -81,7 +81,7 @@
             width:220px;
             /* border:1px solid red; */
             z-index: 8;
-            margin-top: 60px;
+            margin-top: 100px;
             display: flex;
             position: absolute;
         }
@@ -99,13 +99,21 @@
             align-items: center;
             justify-content: center;
         }
-        #sideicon>div>img:hover +  #sideicon>div>img{
-            filter: invert(100%)
+        #sideicon>div:hover  .image{
+            filter: invert(100%);
+            height:45%;
+            width: 45%;
+            /* border:5px solid red; */
         }
+        /* #sideicon>div:hover .p1{
+            color:white;
+            border:3px solid red;
+        } */
         #sideicon>div>img{
             height:35%;
             width: 35%;
-            filter: invert(30%)
+            filter: invert(30%);
+            /* border:1px solid red; */
         }
         #sideicon:hover + #sidebar{
             background-color: rgb(15,16,20);
@@ -121,7 +129,7 @@
             color:grey;
             display: none;
             /* background-color: #0f1014; */
-            background-color: rgb(15,16,20);
+            /* background-color: rgb(15,16,20); */
             opacity: 0.9;
         }
         #iconinfo>div{
@@ -135,16 +143,19 @@
         #iconinfo>div>p{
             font-weight: bold;
             font-size: 20px;
+            /* color:red; */
+            /* color:white; */
+
         }
         #body {
             width: 100%;
             height: 1000px;
-            border: 1px solid blue;
+            /* border: 1px solid blue; */
         }
         #body1{
-            height:260px;
+            height:300px;
             width:100%;
-            border:1px solid green;
+            /* border:1px solid green; */
             background-color: rgb(15,16,20);
             display: flex;
         }
@@ -298,6 +309,7 @@
             background-color: rgb(15,16,20);
             /* border:1px solid red; */
             margin-top: 40px;
+            /* position: relative; */
         }
         .shows>p{
             color:white;
@@ -308,6 +320,8 @@
             height:250px;
             width:100%;
             display: flex;
+            position: relative;
+            flex: 1;
             justify-content: space-between;
             /* border: 1px solid green; */
             /* padding-top: 30px; */
@@ -315,12 +329,37 @@
         .showsinfo>div{
             width:13%;
             height:100%;
-            /* border:1px solid blue; */
+            z-index: 5;
+            /* left:13%;
+            bottom: 0; */
+            position: relative;
+            border:1px solid blue;
+        }
+        .showhover{
+            border:1px solid red;
+            z-index: 7;
+            position: relative;
+            height:0px;
+            top:130px
+        }
+        .showhover>button{
+            width:90%;
+            margin: auto;
+            height:30px;
+        }
+        .showhover>p{
+            color:white;
+            font-size: 11px;
+        }
+        .showsinfo>div:hover{
+            scale: 1.5;
         }
         .showsinfo>div>img{
             height:100%;
             width:100%;
             border-radius: 10px;
+            position: relative;
+            z-index: 6;
         }
         #footer{
             height:200px;
@@ -368,6 +407,40 @@
             width:45%;
             height:100%;
         }
+        .genres{
+            /* height:300px; */
+            width:94%;
+            margin-left: 6%;
+            background-color: rgb(15,16,20);
+            /* border:1px solid red; */
+            margin-top: 40px;
+        }
+        .genres>p{
+            color:white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .genresinfo{
+            height:200px;
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+            /* border: 1px solid green; */
+            padding-top: 30px;
+        }
+        .genresinfo>div{
+            width:19%;
+            height:100%;
+            /* border:1px solid blue; */
+        }
+        .genresinfo>div:hover{
+            scale:1.2;
+        }
+        .genresinfo>div>img{
+            height:100%;
+            width:100%;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -385,26 +458,27 @@
            <div id="navbarcontent">
             <div id="sideicon">
                 <div>
-                 <img src="./user.svg"/>
+                 <img class="image"src="./user.svg"/>
+                 <!-- <p class="imagep">My space</p> -->
                 </div>
                 <div>
-                 <img src="./search (3).svg"/>
+                 <img  class="image" src="./search (3).svg"/>
                 </div>
                 <div>
-                 <img src="./home.svg"/>
+                 <img  class="image" src="./home.svg"/>
                 </div>
                 <div>
-                 <img src="./television-simple.svg"/>
+                 <img  class="image" src="./television-simple.svg"/>
                 </div>
                 <div>
-                 <img src="./monitor-play.svg"/>
+                 <img class="image" src="./monitor-play.svg"/>
                 </div>
                 <div>
-                 <img src="./dribbble-logo (3).svg"/>
+                 <img class="image" src="./dribbble-logo (3).svg"/>
                 </div>
              </div>
              <div id="iconinfo">
-                <div><p>My Space</p></div>
+                <div><p >My Space</p></div>
                 <div><p>Search</p></div>
                 <div><p>Home</p></div>
                 <div><p>TV</p></div>
@@ -452,9 +526,20 @@
                 <p>Latest & Trending</p>
               <div class="showsinfo">
                 <div>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                     <img src="./latest/latest1.jpeg"/>
+                   
                 </div>
                 <div>
+                    <div class="showhover">
+                        <button>Watch Now</button>
+                        <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                        <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
+                    </div>
                     <img src="./latest/latest2.jpeg"/>
                 </div>
                 <div>
@@ -502,6 +587,29 @@
               </div>
             </div>
 
+           
+
+            <div class="genres">
+                <p>Popular Genres</p>
+                <div class="genresinfo">
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8178/1498178-a-59a4ac398d66"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8153/1498153-a-6598b6ec8b9d"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8155/1498155-a-028b73b8e973"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8177/1498177-a-06a0a9d79272"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8136/1498136-a-895be2726b1a">
+                    </div>
+                </div>
+            </div>
+
             <div class="shows">
                 <p>Movies Recommended For You</p>
               <div class="showsinfo">
@@ -527,6 +635,28 @@
                     <img src="./images/movie3.jpeg"/>
                 </div>
               </div>
+            </div>
+
+           
+            <div class="genres">
+                <p>Popular Languages</p>
+                <div class="genresinfo">
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8117/1498117-a-91457c9a23f0"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8115/1498115-a-b8f850b95360"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8140/1498140-a-a7f4bfb4cee5"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8143/1498143-a-9828fc63526d"/>
+                    </div>
+                    <div>
+                        <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8130/1498130-a-49da93627ace">
+                    </div>
+                </div>
             </div>
 
 
