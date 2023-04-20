@@ -60,11 +60,13 @@
             color:white;
         }
         #right>div:nth-child(3){
-            height:120px;
+            height:180px;
             width:100%;
             /* border:1px solid red; */
+            margin-bottom: 30px;
+            margin-top: 10px;
         }
-        #right>div:nth-child(3)>div{
+        #right>div:nth-child(3)>form>div{
             height:50px;
             width:100%;
             border:1px solid grey;
@@ -72,7 +74,29 @@
             border-radius: 10px;
             padding: 10px;
         }
-        #right>div:nth-child(3)>div>input{
+         #right>div:nth-child(3)>form>div:nth-child(3){
+             width:50%;
+            margin: auto;
+            background-color: white;
+         }
+          #right>div:nth-child(3)>form>div:nth-child(3)>input{
+            background-color: white;
+            color:black;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          #right>div:nth-child(3)>form>div>input{
+            height:100%;
+            width:100%;
+            border:none;
+            outline: none;
+            cursor: default;
+            /* caret-color: rgb(134,148,149); */
+            background-color: rgb(22,24,31) ;
+            color:white;
+            /* font-size: 30px; */
+        }
+        #right>div:nth-child(3)>form>div>input{
             height:100%;
             width:100%;
             border:none;
@@ -87,7 +111,7 @@
             color:white;
         }
         #right>p:nth-child(5){
-            margin-top: 100px;
+            margin-top: 50px;
             text-align: center;
         }
         #right>p:nth-child(5)>span{
@@ -117,8 +141,11 @@
                 <i class="fa-solid fa-xmark"></i>
                 <h2>Log in to continue</h2>
                 <div>
-                    <div><input type="email" placeholder="Enter Email"/></div>
-                    <div><input type="password" placeholder="Enter Password"/></div>
+                   <form onsubmit="login(event)">
+                     <div><input id="hlemail" type="email" placeholder="Enter Email"/></div>
+                    <div><input id="hlpassword" type="password" placeholder="Enter Password"/></div>
+                    <div><input type="submit" value="Login"/></div>
+                   </form>
                 </div>
                 <p>By procedding yo uconfirm that you are above 18 years of age and agree to the <span>Privacy Policy & Terms of Use</span></p>
                 <p>Having trouble logging in? <span>Get Help</span></p>
@@ -126,5 +153,6 @@
         </div>
 
     </div>
+    <script src="./server.js"></script>
 </body>
 </html>
