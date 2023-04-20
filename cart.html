@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <script src="https://kit.fontawesome.com/43b779b2fa.js" crossorigin="anonymous"></script>
     <style>
         *{
             margin: 0;
@@ -13,14 +14,533 @@
         }
         #screen{
             width:100%;
-            height:1000px;
-            border:1px solid red;
+            /* height:2500px; */
+            /* border:1px solid red; */
+        }
+        #sidebar {
+            width:6%;
+            height:750px;
+            /* border:1px solid green; */
+            /* background-color: #0f1014; */
+            position: fixed;
+            /* background-color: rgb(15,16,19); */
+            left: 0;
+            z-index: 8;
+        }
+        #sidebar:hover{
+            width: 13%;
+            transition: 0.2s;
+            opacity: 0.9;
+            /* position: relative; */
+            /* z-index: -1; */
+            background-image: linear-gradient(to right, rgba(5,5,10,2), rgba(0, 0, 0, 0.2));
+        }
+        #sidebar:hover .image{
+            width:50%;
+            height:50%;
+        }
+        #mainhead{
+            /* background-color: #0f1014; */
+            height:140px;
+            width:100%;
+            /* border:1px solid blue; */
+            display: flex;
+            flex-direction: column;
+            padding-top: 15px;
+        }
+        #navhead{
+            /* width:60%; */
+            /* height:30%; */
+            align-self: center;
+            position: fixed;
+            left: 1%;
+        }
+        #navhead>img{
+           width:100%;
+           height:100%;
+        }
+        #subscribe{
+            height:25px;
+            /* width:95%; */
+            /* border:1px solid grey; */
+            align-self: center;
+            margin-top: 10px;
+            background-color: rgb(39,35,30);
+            display: flex;
+            align-items: center;
+            border-radius: 50px;
+            /* padding: 8px; */
+            position: fixed;
+            top:8%;
+            left: 1%;
+        }
+        #subscribe>p{
+            color:rgb(177,149,92);
+            font-size: 14px;
+        }
+        #navbarcontent{
+            height:370px;
+            width:100%;
+            /* border:1px solid red; */
+            /* z-index: 8; */
+            margin-top: 100px;
+            display: flex;
+            position: absolute;
+        }
+        #sideicon{
+            /* height:100%; */
+            width:100%;
+            /* border:5px solid green; */
+            /* margin-top: 60px; */
+        }
+        .icons{
+            height:60px;
+            width:100%;
+            /* border:1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icons>div:nth-child(1){
+            width:50%;
+            height:100%;
+            /* border:1px solid green; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+         
+        }
+        .icons>div:nth-child(1):hover .image{
+            filter: invert(100%);
+            height:60%;
+        }
+        .icons>div:nth-child(1):hover + .aa>p{
+            display: block;
+            /* border:4px solid gold; */
+            color:white;
+            font-weight: bold;
+        }
+        .icons>div:nth-child(2){
+            width:60%;
+            height:100%;
+            /* border:1px solid green; */
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            /* display: none; */
+        }
+        .icons>div:nth-child(2)>p{
+            font-size: 23px;
+            display: none;
+        }
+        .image{
+            height:80%;
+            width: 80%;
+            filter: invert(50%);
+        
+            /* border:1px solid red; */
+        }
+        #body {
+            width: 100%;
+            /* height: 1000px; */
+            /* border: 1px solid blue; */
+            background-color: rgb(15,16,20);
+        }
+        #mainbody{
+            /* height:740px; */
+            width:94%;
+            margin-left: 6%;
+            background-color: rgb(15,16,20);
+            /* border:1px solid red; */
+            padding-top: 40px;
+            /* position: relative; */
+        }
+        #mainbody>div:nth-child(1){
+            height:40px;
+            width:100%;
+            margin-left: 20px;
+            /* border:1px solid blue; */
+            border-bottom: 2px solid grey;
+        }
+        #mainbody>div:nth-child(1)>p{
+            color:white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        #cart{
+            /* height:700px; */
+            width:100%;
+            /* border:1px solid blue; */
+            display: flex;
+            justify-content: space-between;
+        }
+        #cart>div:nth-child(1){
+            width:68%;
+            height:100%;
+            /* border:1px solid green; */
+        }
+        .cartmovie{
+            height:33.33%;
+            width:100%;
+            /* border:1px solid red; */
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid grey;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .cartmovie>div:nth-child(1){
+            width:23%;
+            height:80%;
+            /* border:1px solid white; */
+        }
+        .cartmovie>div:nth-child(1)>img{
+            height:100%;
+            width:100%;
+            border-radius: 10px;
+        }
+        #cartinfo{
+            width:73%;
+            height:100%;
+            /* border:1px solid white; */
+            display: flex;
+        }
+        #cartinfo>div:nth-child(1){
+            width:80%;
+            height:100%;
+            /* border:1px solid red; */
+            padding: 5px;
+        }
+        #cartinfo>div:nth-child(1)>h1{
+            color:white;
+            font-size: 22px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        #cartinfo>div:nth-child(1)>p:nth-child(2){
+            color:grey;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        #cartinfo>div:nth-child(1)>p:nth-child(3){
+            color:white;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        #cartinfo>div:nth-child(1)>p:nth-child(4){
+            color:grey;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #cartinfo>div:nth-child(1)>div{
+            width:60%;
+            height:50px;
+            margin-top: 50px;
+            /* border:1px solid blue; */
+        }
+        #cartinfo>div:nth-child(1)>div>button:nth-child(1){
+            width:75%;
+            height:100%;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+        }
+        #cartinfo>div:nth-child(1)>div>button:nth-child(2){
+            width:20%;
+            height:100%;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            margin-left: 3%;
+            background-color: rgb(208, 204, 204);
+            opacity: 0.3;
+        }
+        #cartinfo>div:nth-child(2){
+            width:20%;
+            /* border:1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #cartinfo>div:nth-child(2)>div{
+            width:50%;
+            height:100%;
+            /* border:5px solid green; */
+            display: flex;
+            flex-direction: column;
+        }
+        .carthover{
+            height:40%;
+            width:100%;
+            /* border:1px solid blue; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .carthover:hover #cicon{
+            color:white;
+        }
+        .carthover:hover .cinfo{
+            display: block;
+        }
+        #cicon{
+            font-size: 25px;
+            color:grey;
+            margin-bottom: 10px;
+        }
+        .cinfo{
+            color:white;
+            font-weight: bold;
+            display: none;
+        }
+        
+        #cart>div:nth-child(2){
+            width:30%;
+            height:100%;
+            /* border:1px solid green; */
+            padding:20px;
+        }
+        #cart>div:nth-child(2)>div{
+            height:240px;
+            width:100%;
+            /* border:1px solid yellow; */
+            background-color: rgb(41, 39, 39);
+            padding: 20px;
+        }
+        #cart>div:nth-child(2)>div>p{
+            font-size: 22px;
+            color:white;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgb(172, 169, 169);
+            padding-top: 20px;
+        }
+        #cart>div:nth-child(2)>div>div{
+            width:100%;
+            height:150px;
+            /* border:1px solid red; */
+            display: flex;
+            margin-top: 20px;
+        }
+        #cart>div:nth-child(2)>div>div>div{
+            width:50%;
+            height:100%;
+            /* border:1px solid blue; */
+        }
+        #cart>div:nth-child(2)>div>div>div:nth-child(2){
+            text-align: right;
+        }
+        #cart>div:nth-child(2)>div>div>div>p{
+            color:grey;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+        #cart>div:nth-child(2)>div>div>div>h2{
+            color:white;
+            font-size: 20px;
+            margin-top: 25px;
+        }
+        #cart>div:nth-child(2)>div>div>div>h2>span{
+            color:grey;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+
+        @media screen and (max-width:1000px){
+            #cart{
+                flex-direction: column;
+            }
+            #cart>div:nth-child(2){
+                width:100%;
+            }
+            #cart>div:nth-child(2)>div{
+                width:60%;
+                margin: auto;
+            }
+            #cart>div:nth-child(1){
+                width:90%;
+                margin: auto;
+            }
         }
     </style>
 </head>
 <body>
     <div id="screen">
+        <div id="sidebar">
+            <div id="mainhead">
+             <div id="navhead">
+                 <img src="./logo-d-plus (1).svg"/>
+             </div>
+             <div id="subscribe">
+                 <p>Subscribe <span><i class="fa-solid fa-angle-right"></i></span></p>
+             </div>
+            </div>
+            <div id="navbarcontent">
+             <div id="sideicon">
+                 <div class="icons">
+                  <div><img class="image"src="./user.svg"/></div>
+                  <div class="aa"><p>My Space</p></div>
+                 </div>
+                 <div class="icons">
+                  <div><img  class="image" src="./search (3).svg"/></div>
+                  <div  class="aa"><p>Search</p></div>
+                 </div>
+                 <div class="icons">
+                 <div> <img  class="image" src="./home.svg"/></div>
+                 <div  class="aa"><p>Home</p></div>
+                 </div>
+                 <div class="icons">
+                  <div><img  class="image" src="./television-simple.svg"/></div>
+                   <div  class="aa"><p>TV</p></div>
+                 </div>
+                 <div class="icons">
+                  <div><img class="image" src="./monitor-play.svg"/></div>
+                   <div  class="aa"><p>Movies</p></div>
+                 </div>
+                 <div class="icons">
+                  <div><img class="image" src="./dribbble-logo (3).svg"/></div>
+                   <div  class="aa"><p>Sports</p></div>
+                 </div>
+              </div>
+         </div>
+        </div>
+        <div id="body">
+            <div id="mainbody">
+                <div>
+                    <p>CART</p>
+                </div>
+                <div id="cart">
+                    <div>
+                        <div class="cartmovie">
+                            <div>
+                                <img src="./latest/latest2.jpeg" alt="image"/>
+                            </div>
+                            <div id="cartinfo">
+                                <div>
+                                    <h1>GASLIGHT</h1>
+                                    <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                                    <!-- <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p> -->
+                                    <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
+                                    <div>
+                                        <button><span><i class="fa-solid fa-play"></i></span>  Watch Now</button>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="carthover">
+                                            <i id="cicon"class="fa-solid fa-circle-down"></i>
+                                            <p class="cinfo">Download</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-share"></i>
+                                            <p class="cinfo">Share</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-check"></i>
+                                            <p class="cinfo">Add</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cartmovie">
+                            <div> <img src="./latest/latest3.jpeg" alt="image"/></div>
+                            <div id="cartinfo">
+                                <div>
+                                    <h1>GASLIGHT</h1>
+                                    <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                                    <!-- <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p> -->
+                                    <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
+                                    <div>
+                                        <button><span><i class="fa-solid fa-play"></i></span>  Watch Now</button>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="carthover">
+                                            <i id="cicon"class="fa-solid fa-circle-down"></i>
+                                            <p class="cinfo">Download</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-share"></i>
+                                            <p class="cinfo">Share</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-check"></i>
+                                            <p class="cinfo">Add</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cartmovie">
+                            <div> <img src="./latest/latest5.jpeg" alt="image"/></div>
+                            <div id="cartinfo">
+                                <div>
+                                    <h1>GASLIGHT</h1>
+                                    <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                                    <!-- <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p> -->
+                                    <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
+                                    <div>
+                                        <button><span><i class="fa-solid fa-play"></i></span>  Watch Now</button>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="carthover">
+                                            <i id="cicon"class="fa-solid fa-circle-down"></i>
+                                            <p class="cinfo">Download</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-share"></i>
+                                            <p class="cinfo">Share</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-check"></i>
+                                            <p class="cinfo">Add</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                   
+                  <div>
+                   <div>
+                    <p>TOTAL SUMMARY</p>
+                    <div>
+                     <div>
+                     
+                         <p>Sub Total</p>
+                         <p>Discount</p>
+                         <p>Delivery Charge</p>
+                         <h2>Total<span>(incl of all taxes.)</span></h2>
+                        </div>
+                        <div>
+                         <p>Rs.1497</p>
+                         <p>Rs.0</p>
+                         <p>FREE</p>
+                         <h2>Rs.1497</h2>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                    </div>
+                   
+                   </div>
+                </div>
 
+            </div>
+        </div>
     </div>
     
 </body>
