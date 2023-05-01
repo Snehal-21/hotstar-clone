@@ -531,8 +531,8 @@
            <div id="navbarcontent">
             <div id="sideicon">
                 <div class="icons">
-                 <div><img class="image"src="./user.svg"/></div>
-                 <div class="aa"><p>My Space</p></div>
+                 <div><img  class="image"src="./user.svg"/></div>
+                 <div class="aa" id="switch"><p>My Space</p></div>
                 </div>
                 <div class="icons">
                  <div><img  class="image" src="./search (3).svg"/></div>
@@ -889,6 +889,22 @@
          </div>
          
     </div>
+    </div>
+
+    <script>
+        window.onload=function(){
+            // alert("working")
+            var loginuser=JSON.parse(localStorage.getItem("hloginuser"))
+            // console.log(loginuser)
+            if(!!loginuser){
+                var divforhtml=document.getElementById("switch");
+                console.log(divforhtml)
+                var name=`<h1>${loginuser.uname}</h1>`;
+                console.log(name)
+                divforhtml.innerHTML=name;
+            }
+        }
+    </script>
 </body>
 
 </html>
