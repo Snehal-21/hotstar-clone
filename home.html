@@ -469,7 +469,25 @@
             width:100%;
             border-radius: 10px;
         }
-
+        #movies{
+            width:100%;
+            /* border:1px solid red; */
+            margin-top: 30px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        #singlemovie{
+            width:23%;
+            height:300px;
+            text-align: center;
+            border:1px solid grey;
+        }
+        #singlemovie>img{
+            width:100%;
+            height:100%;
+        }
         @media screen and (max-width:1000px){
         #body1{
             display: none;
@@ -902,7 +920,7 @@
                 var finaldata="";
                 var moviefromls=JSON.parse(localStorage.getItem("hmovies"));
                 for(var i=0;i<moviefromls.length;i++){
-                    finaldata+=`<div id="singlemovie"><img src=${moviefromls[i].addurl} /></div>`
+                    finaldata+=`<div id="singlemovie"><img src="${moviefromls[i].addurl}" /></div>`
                 }
                 console.log(finaldata,"finaldata here");
                 divformovies.innerHTML=finaldata;
@@ -910,14 +928,7 @@
             if(!!loginuser){
                 var divforhtml=document.getElementById("switch");
                 var logoutdiv=document.getElementById("logout");
-                var divformovies=document.getElementById("movies")
-                var finaldata="";
-                var moviefromls=JSON.parse(localStorage.getItem("hmovies"));
-                for(var i=0;i<moviefromls.length;i++){
-                    finaldata+=`<div id="singlemovie"><img src=${moviefromls.addurl}</div>`
-                }
-                console.log(finaldata,"finaldata here");
-                divformovies.innerHTML=finaldata;
+               
                 console.log(divforhtml)
                 var name=`<h1>${loginuser.uname}</h1>`;
                 var button=`<button onclick="logout()">Logout</button>`;
