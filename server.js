@@ -6,7 +6,7 @@ function register(event){
     var email=document.getElementById("hemail").value;
     var password=document.getElementById("hpassword").value;
     var confirmpassword=document.getElementById("hconfirmpassword").value;
-
+    var cartproducts=[];
     // var hotstarusers={uname:name,uemail:email,upassword:password,uconfirmpassword:confirmpassword};
     // console.log(hotstarusers);
     if(name && email && password && confirmpassword){
@@ -24,7 +24,7 @@ function register(event){
                     alert("email already exist");
                 }
                 else{
-                    var hotstar={uname:name,uemail:email,upassword:password,uconfirmpassword:confirmpassword};
+                    var hotstar={uname:name,uemail:email,upassword:password,uconfirmpassword:confirmpassword,cartproducts:cartproducts};
                     harray.push(hotstar);
                     // console.log(harray)
                     localStorage.setItem("hotstarusers",JSON.stringify(harray))

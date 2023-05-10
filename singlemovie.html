@@ -428,8 +428,8 @@
             <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
             <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
             <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
-            <div>
-                <button><span><i class="fa-solid fa-play"></i></span> <a style="text-decoration: none;color:black;"href="./cart.html">Watch Now</a></button>
+            <div id="cart">
+                <button><span><i class="fa-solid fa-play"></i></span> <a style="text-decoration: none;color:black;"href="./cart.html">Add to Cart</a></button>
                 <button>+</button>
             </div>
         </div>
@@ -545,13 +545,36 @@
         var hmovie=JSON.parse(localStorage.getItem("curreent-movie"));
         var divimage=document.querySelector("#movieimage");
         var divname=document.getElementById("name");
+        var divcart=document.getElementById("cart");
         name=`${hmovie.name}`;
-        // url=`${hmovie.addurl}`;
         divname.innerHTML=name;
+        // console.log(hmovie);
+        var cart=`<button onclick='addcart(${JSON.stringify(hmovie)})'><span><i class="fa-solid fa-play"></i></span> <a style="text-decoration: none;color:black;"href="./cart.html">Add to Cart</a></button>
+                <button>+</button>`;
         divimage.style.backgroundImage = `url(${hmovie.addurl})`;
-        // $('movieimage').css({
-        //     backgroundImage:url
-        // });
+       divcart.innerHTML=cart;
+    }
+    function addcart(movie){
+            var currentuser=JSON.parse(localStorage.getItem("hloginuser"));
+            // console.log(currentuser.uemail);
+            var userdata=JSON.parse(localStorage.getItem("hotstarusers"));
+            for(var i=0;i<userdata.length;i++){
+                if(currentuser.uemail==userdata[i].uemail){
+                    alert("got")
+                   if(userdata[i].cartproducts === undefined){
+                    userdata[i].cartproducts=[movie];
+                   }
+                else{
+                    userdata[i].cartproducts.push(movie);
+                }
+                alert("product added to the cart");
+                window.location.href='./cart.html';
+            }
+           
+        }
+        // console.log(userdata,"data here");
+        var test=localStorage.setItem("hotstaruserdata",JSON.stringify(userdata));
+        console.log(test,"userdata");
     }
 </script>
 </html>

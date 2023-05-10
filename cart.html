@@ -415,7 +415,7 @@
                     <p>CART</p>
                 </div>
                 <div id="cart">
-                    <div>
+                    <div id="cartdiv">
                         <div class="cartmovie">
                             <div>
                                 <img src="./latest/latest2.jpeg" alt="image"/>
@@ -542,6 +542,52 @@
             </div>
         </div>
     </div>
-    
+    <script>
+         window.onload=function(){
+            var currentuser=JSON.parse(localStorage.getItem("hloginuser"));
+            var userdata=JSON.parse(localStorage.getItem("hotstaruserdata"));
+            console.log(userdata,"userdata here");
+            var divtoappend=document.querySelector(".cartmovie")
+            var products;
+            for(var i=0;i<userdata.length;i++){
+                if(currentuser.uemail == userdata[i].uemail){
+                    products=userdata[i].cartproducts;
+                }
+            }
+            console.log(products,"product hrere");
+            var finalcart="";
+            for(var i=0;i<products.length;i++){
+                finalcart+=`<div><img src="${products[i].addurl}"</div>
+                 <div id="cartinfo">
+                                <div>
+                                    <h1>${products[i].name}</h1>
+                                    <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
+                                    <!-- <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p> -->
+                                    <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
+                                    <div>
+                                        <button><span><i class="fa-solid fa-play"></i></span>  Watch Now</button>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="carthover">
+                                            <i id="cicon"class="fa-solid fa-circle-down"></i>
+                                            <p class="cinfo">Download</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-share"></i>
+                                            <p class="cinfo">Share</p>
+                                        </div>
+                                        <div class="carthover">
+                                            <i id="cicon" class="fa-solid fa-check"></i>
+                                            <p class="cinfo">Add</p>
+                                        </div>
+                                    </div>
+                                </div></div>`;
+            }
+            divtoappend.innerHTML=finalcart;
+        }
+    </script>
 </body>
 </html>
