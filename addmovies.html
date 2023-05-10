@@ -10,14 +10,16 @@
     <form onsubmit="addmovie(event)">
         <label>Movie url</label></br>
         <input type="text" id="hmurl"/></br>
+        <input type="text" id="hmname"/></br>
         <input type="submit" value="Add Movie"/>
     </form>
     <script>
         function addmovie(event){
             event.preventDefault();
             var addurl=document.getElementById("hmurl").value;
+            var name=document.getElementById("hmname").value;
             console.log(addurl);
-            var movies={addurl};
+            var movies={addurl,name};
 
             var lshotstar=JSON.parse(localStorage.getItem("hmovies")) || [];
             lshotstar.push(movies);

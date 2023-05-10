@@ -920,7 +920,7 @@
                 var finaldata="";
                 var moviefromls=JSON.parse(localStorage.getItem("hmovies"));
                 for(var i=0;i<moviefromls.length;i++){
-                    finaldata+=`<div id="singlemovie"><img src="${moviefromls[i].addurl}" /></div>`
+                    finaldata+=`<div onClick ='redirect(${JSON.stringify(moviefromls[i])})'id="singlemovie"><img src="${moviefromls[i].addurl}" /></div>`
                 }
                 console.log(finaldata,"finaldata here");
                 divformovies.innerHTML=finaldata;
@@ -936,6 +936,13 @@
                 divforhtml.innerHTML=name;
                 logoutdiv.innerHTML=button;
             }
+        }
+        function redirect(product){
+            var singlemovie=JSON.stringify(product);
+            // console.log(singlejwell);
+            // alert("working");
+            localStorage.setItem("curreent-movie",singlemovie);
+            window.location.href='./singlemovie.html';
         }
         function logout(){
             alert("logout successfiully");

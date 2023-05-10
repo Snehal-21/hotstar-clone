@@ -424,7 +424,7 @@
        <div id="body">
         <div id="movieimage">
            <div id="movieinfo">
-            <h1>Total Dhamaal</h1>
+            <h1 id="name">Total Dhamaal</h1>
             <p>2019 .2h 7m . Hindi . <span>U/A 7+</span></p>
             <p>When 50 million bucks are at stake, six eccentric people will do whatever it takes,including braving the wild.</br>Who will win this race against time?</p>
             <p>Comedy <span>|</span> Light-hearted <span>|</span> Sitcom <span>|</span> Slapstick</p>
@@ -540,4 +540,18 @@
        </div>
     </div>
 </body>
+<script>
+    window.onload=function(){
+        var hmovie=JSON.parse(localStorage.getItem("curreent-movie"));
+        var divimage=document.querySelector("#movieimage");
+        var divname=document.getElementById("name");
+        name=`${hmovie.name}`;
+        // url=`${hmovie.addurl}`;
+        divname.innerHTML=name;
+        divimage.style.backgroundImage = `url(${hmovie.addurl})`;
+        // $('movieimage').css({
+        //     backgroundImage:url
+        // });
+    }
+</script>
 </html>
